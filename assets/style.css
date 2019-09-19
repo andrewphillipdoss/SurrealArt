@@ -1,0 +1,33 @@
+#main-container {
+
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+}
+
+.close-container {
+	
+	padding: 5px; 
+	display: flex;
+
+}
+
+.close {
+
+height: 27px;
+
+}
+
+.on-hover-close {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 99;
+	height: 50px;
+}
+
+img .on-hover-close:hover {
+        display: inline;
+	height: 50px;
+    }

@@ -1,0 +1,265 @@
+<html>
+<head>
+<style>
+
+body {
+margin: 0;
+padding: 0;
+}
+
+.parent-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	z-index: 2;
+	min-height: 100vh;
+	width:100%;
+}
+
+.btn-container1 {
+background-image: url("assets/surreal.svg");
+background-position: center;
+background-size: 200%;
+display: flex;
+height: 100vh;
+width: 100%;
+justify-content: center;
+align-items: center;
+align-self:flex-start;
+position: absolute;
+}
+
+.btn-container2 {
+background-color: black;
+display: flex;
+height: 80%;
+width: 80%;
+border-radius: 2px;
+justify-content: center;
+align-items: center;
+}
+
+.btn-container3 {
+background-image: url("assets/surreal.svg");
+background-position: 75% 75%;
+background-size: 300%;
+display: flex;
+height: 70%;
+width: 70%;
+border-radius: 2px;
+justify-content: center;
+align-items: center;
+}
+
+.btn-container4 {
+background-color: black;
+display: flex;
+height: 80%;
+width: 80%;
+border-radius: 2px;
+justify-content: center;
+align-items: center;
+}
+
+.btn-container5 {
+background-image: url("assets/surreal.svg");
+background-position: 75% 75%;
+background-size: 300%;
+display: flex;
+height: 70%;
+width: 70%;
+border-radius: 2px;
+justify-content: center;
+align-items: center;
+}
+
+
+.btn {
+border-style: double;
+border-width: 20px;
+border-color: black;
+background-color: white;
+display: flex;
+height: 15vh;
+width: 15vh;
+border-radius: 100%;
+justify-content: center;
+align-items: center;
+-webkit-transition: width 0.4s height 0.3s; /* For Safari 3.1 to 6.0 */
+transition: width 0.5s height 0.5s;
+}
+
+.btn:hover {
+background-color: #FF2A54;
+width: 18.5vh;
+height: 18vh;
+cursor: grab;
+}
+
+.btn-content {
+color: black;
+font-family: Courier;
+font-weight: bold;
+}
+
+.modal-container {
+	display: none;
+	postion: absolute;
+	background-color: white;
+	width: 0;
+	height: 0;
+	margin: 0;
+	padding: 0;
+	justify-content: space-between;
+	z-index: 2;
+}
+
+.image-container {
+	display: flex;
+	justify-content: flex-end;
+	width: 300%;
+}
+
+.close-container {
+	position: fixed;
+	background-image: url("assets/close_button2.svg");
+	background-repeat: no-repeat;
+	height: 30px;
+	width: 30px;
+	margin: 5px;
+	top: -50%;
+}
+
+.close-container:hover {
+	background-image: url("assets/close_button_hover.svg");
+	cursor: pointer;
+}
+
+</style>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+<script>
+
+	function openFullscreen() {
+		var elem = document.body
+	  if (elem.requestFullscreen) {
+	    elem.requestFullscreen({ navigationUI: "show" });
+	  } else if (elem.mozRequestFullScreen) { /* Firefox */
+	    elem.mozRequestFullScreen({ navigationUI: "show" });
+	  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+	    elem.webkitRequestFullscreen({ navigationUI: "show" });
+	  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+	    elem.msRequestFullscreen({ navigationUI: "show" });
+	  }
+	}
+
+
+	function closeFullscreen() {
+		var elem = document.body
+	  if (document.exitFullscreen) {
+	    document.exitFullscreen();
+	  } else if (document.mozCancelFullScreen) { /* Firefox */
+	    document.mozCancelFullScreen();
+	  } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+	    document.webkitExitFullscreen();
+	  } else if (document.msExitFullscreen) { /* IE/Edge */
+	    document.msExitFullscreen();
+	  }
+	}
+
+	$(document).ready(function(){
+
+		$(".btn").hover(function(){
+			$(".btn-container5").css({'background-color': 'black', 'background-image': 'none'});
+			$(".btn-container4").css({'background-image': 'url("assets/surreal.svg")', 'background-position': 'center', 'background-size': '200%'});
+			$(".btn-container3").css({'background-color': 'black', 'background-image': 'none'});
+			$(".btn-container2").css({'background-image': 'url("assets/surreal.svg")', 'background-position': 'center', 'background-size': '200%'});
+			$(".btn-container1").css({'background-color': 'black', 'background-image': 'none'});
+				}, function(){
+					$(".btn-container5").css({'background-image': 'url("assets/surreal.svg")', 'background-position': 'center', 'background-size': '200%'});
+					$(".btn-container4").css({'background-color': 'black', 'background-image': 'none'})
+					$(".btn-container3").css({'background-image': 'url("assets/surreal.svg")', 'background-position': 'center', 'background-size': '200%'});
+					$(".btn-container2").css({'background-color': 'black', 'background-image': 'none'});
+					$(".btn-container1").css({'background-image': 'url("assets/surreal.svg")', 'background-position': 'center', 'background-size': '200%'});
+								});
+
+
+		$(".btn").click(function(){
+			$(".btn-container5").css({'background-image': 'url("assets/surreal.svg")', 'background-position': 'center', 'background-size': '200%'}).delay(80).promise().done(function(){
+				$(".btn-container4").css({'background-color': 'black', 'background-image': 'none'}).delay(80).promise().done(function(){
+					$(".btn-container3").css({'background-image': 'url("assets/surreal.svg")', 'background-position': 'center', 'background-size': '200%'}).delay(80).promise().done(function(){
+						$(".btn-container2").css({'background-color': 'black', 'background-image': 'none'}).delay(80).promise().done(function(){
+							$(".btn-container1").css({'background-image': 'url("assets/surreal.svg")', 'background-position': 'center', 'background-size': '200%'}).delay(80).promise().done(function(){
+								$(".btn-container5").css({'background-color': 'black', 'background-image': 'none'}).delay(80).promise().done(function(){
+									$(".btn-container4").css({'background-image': 'url("assets/surreal.svg")', 'background-position': 'center', 'background-size': '200%'}).delay(80).promise().done(function(){
+										$(".btn-container3").css({'background-color': 'black', 'background-image': 'none'}).delay(80).promise().done(function(){
+											$(".btn-container2").css({'background-image': 'url("assets/surreal.svg")', 'background-position': 'center', 'background-size': '200%'}).delay(80).promise().done(function(){
+												$(".btn-container1").css({'background-color': 'black', 'background-image': 'none'}).delay(80).promise().done(function(){
+														$(".modal-container").css("display","flex");
+														$(".modal-container").animate({width: "100%", height: "100vh"}, 190, function(){
+															$(".close-container").animate({top: '0'}, 500);
+													});
+												});
+											});
+										});
+									});
+								});
+							});
+						});
+					});
+				});
+			});
+		});
+
+		$(".close-container").click(function(){
+			$(".btn-container5").css({'background-image': 'url("assets/surreal.svg")', 'background-position': 'center', 'background-size': '200%'});
+			$(".btn-container4").css({'background-color': 'black', 'background-image': 'none'});
+			$(".btn-container3").css({'background-image': 'url("assets/surreal.svg")', 'background-position': 'center', 'background-size': '200%'});
+			$(".btn-container2").css({'background-color': 'black', 'background-image': 'none'});
+			$(".btn-container1").css({'background-image': 'url("assets/surreal.svg")', 'background-position': 'center', 'background-size': '200%'});
+
+			$(".close-container").animate({top: '-50'}, 500, function(){
+				$(".modal-container").animate({width: "0", height: "0"}, 800, function(){
+					$(".modal-container").css("display","none");
+					$(".close-container").css({top: "-50%"});
+				});
+			});
+		});
+
+	});
+
+
+</script>
+
+</head>
+<body>
+<div class="parent-container">
+
+	<div class="btn-container1">
+		<div class="btn-container2">
+			<div class="btn-container3">
+				<div class="btn-container4">
+					<div class="btn-container5">
+						<div class="btn">
+							<p class="btn-content">ENTER </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="modal-container">
+		<div class="close-container">
+		</div>
+		<div class="image-container">
+			<img  src="assets/surreal.svg" height=2000px>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
